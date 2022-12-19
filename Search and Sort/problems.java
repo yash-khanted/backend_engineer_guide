@@ -29,11 +29,14 @@ public class problems{
         while(index < A.length){
             result[index] = A[Aindex];
             Aindex++;
+            index++;
         }
 
         //created to fill the remaining B values if present
         while(index < B.length){
             result[index] = B[Bindex];
+            Bindex++;
+            index++;
         }
 
         return result;
