@@ -10,7 +10,7 @@ public class problems{
         int index = 0;
         int Aindex = 0;
         int Bindex = 0; //variable to track array indexes
-        while(index < A.length || index < B.length){
+        while(index < A.length && index < B.length){
             //the lowest number is added first
             //creating an increasing array
             if(A[Aindex] < B[Bindex]){
