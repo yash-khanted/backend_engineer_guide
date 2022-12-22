@@ -1,7 +1,7 @@
 public class problems{
 
     //function to merge two sorted arrays
-    public int[] merger(int[] A, int[]B){
+    public int[] Merger(int[] A, int[]B){
 
         //creating the resultant array with combined length of A and B
         int[] result = new int[A.length + B.length];
@@ -40,5 +40,35 @@ public class problems{
         }
 
         return result;
+    }
+
+    public static int[] MergeSort(int[] arr){
+        int length = arr.length;
+
+        //termination condition
+        if(length == 1){
+            return arr;
+        }
+
+        int[] arrOne = new int[length/2];
+        int[] arrTwo = new int[length - length/2];
+
+        int arrIndex = 0;
+        for(int i=0; i<arrOne.length; i++){
+            arrOne[i] = arr[arrIndex];
+            arrIndex++;
+        }
+
+        for(int i=0; i<arrTwo.length; i++){
+            arrTwo[i] = arr[arrIndex];
+            arrIndex++;
+        }
+
+        int[] firstHalf = MergeSort(arrOne);
+        int[] secondHalf = MergeSort(arrTwo);
+        //creating an problems object to call Merger method
+        problems code = new problems();
+
+        return code.Merger(firstHalf, secondHalf);
     }
 }

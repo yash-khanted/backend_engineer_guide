@@ -18,18 +18,6 @@ public class problems {
         //creating a hashmap to store
         HashMap<Integer, Integer> map = new HashMap<>();
 
-
         return ans;
     }
 }
-
-1 - 100
-2 - 50
-3 - 
-4 -
-5 - 
-6 -
-7 -
-8 -
-9 -
-10 -
