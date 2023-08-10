@@ -6,3 +6,11 @@ It deals with the mathematical objects that are widely used in all most all fiel
 ----------
 ## Mathematical Reasoning
 **Logic is Science of reasoning**
+## Modular Arithemetic
+$(a*b)\%m=((a\%m) * (b\%m))\%m$
+### inverse modulo
+$ If (a * b) \% m = 1 then b is called inverse modulo of a.
+
+$( a<sup>-1</sup> ) \% m will exist only if gcd(a, m) = 1 
+
+## Combinatorics

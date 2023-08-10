@@ -131,4 +131,14 @@ public class problems{
     }
 //MergeSort in stack
 /* write a code that merge two sorted stack and using recursion sort the unsorted stacks */
+
+/*
+ * Convert the absolute path to a linux file to acutual path
+ * for example, let /a/.//../c/../b is the provided absolute path for the file for which the actual path is /b
+ * 
+ * Idea:
+ * Instantiate a stack and store each value characted separated by slash
+ * iterate over entire string. When ever you encounter two slash get he data in between them.
+ * }
+ */
 }

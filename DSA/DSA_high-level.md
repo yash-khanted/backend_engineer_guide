@@ -1,4 +1,18 @@
 # High Level Overview of Data structure of algorithms
+# Algorithms
+FOur types
+1. Complete search / Brute force
+    Iterative, Recursive or back tracking
+2. Divide and conquer
+    merge sort, binary search
+3. Greedy algorithm
+4. Dynamic programming
+
+Optimazation problems
+The problems where maximum or maximum is to be found.
+1. Greedy method
+2. Dynamic programming
+3. Branch and bound
 ## Time Complexity
 Time complexity is the time taken by an algorithm/program to run as a function of the length of the input
 - Time complexity helps in comparing efficiency between two algorithms
@@ -132,3 +146,16 @@ There are two ways to start a project with GIT
 2. Make a normal directory to be under git control.
 
 Let's see for the second one. Navigate to the directory and run the few add commands and make the first commit.
+# Math
+## GCD (Greatest common divisor)
+1. prime factorization method
+2. Euclidean principle
+
+```
+public class Solution {
+    public int gcd(int A, int B) {
+        if(B == 0) return A;
+        else return gcd(B, A%B);
+    }
+}
+```

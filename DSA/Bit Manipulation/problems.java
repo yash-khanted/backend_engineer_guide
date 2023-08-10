@@ -5,7 +5,7 @@ public class problems {
 
         /* Approach
                 We use right shift operator to get the required bit
-                at the 0th bit position and then perform number & 1 to check
+                at the 0th bit position and then perform (number & 1) to check
          */
 
          number = number>>bitPosition;
@@ -34,7 +34,11 @@ public class problems {
     public int uniqueElement02(int arr[]){
         
         /*Approach
-         *  Here, we have count the number set bits at each ith position and perform
+         * idea
+         * since ducplicate elements appear thrice, sum of set bit count at any position
+         * would be in term of 3 multiples + 1, the one remaining will denote the unique element
+         * 
+         *  Here, we have to count the number of set bits at each ith position and perform
          *  count % 3. As, for dupliactes which repeat thrice will similar bit set and
          * unset at every bit position. But for the unique element where ever we have
          * the set bit, there count will be 1 + multiple of 3.
@@ -88,7 +92,11 @@ public class problems {
     public int[] TwoUniqueElements(int[] arr){
 
         /*Approach
-         * Here,
+         * Observation
+         * here, divide and conquer strategy will work, as the unique's has unsimilar type of
+         * bits and all the remaining dupliacate will follow only one element based on the similarity
+         * 
+         * idea
          * We first find the xor of all elements, then we find the set bit
          * in the resultant number
          * As in xor, we know 1 ^ 0 = 1. So, now we can separate all the array elements
@@ -120,7 +128,7 @@ public class problems {
     }
 
     //for a given array, find the sum of all the xor pairs
-    public int XorPairsSUm(int[] arr){
+    public int XorPairsSum(int[] arr){
 
         /*Approach
          * Let suppose there is an array {3, 2, 5}, then all the xor pairs are
@@ -133,7 +141,7 @@ public class problems {
          *  and if we see this is a symmetric matrix. So upper triangle is equal to lower triangle
          *  as bitwise xor is commutative 3^5 = 5^3
          * 
-         * in bitwise xor operation, a bit is set only if the count of set bit is operand is odd
+         * in bitwise xor operation, a bit is set only if the count of set bit in operand is odd
          * So for every pair, if at every bit position there is odd count of set bit then it will contribute in
          * the final sum
          * 
