@@ -17,9 +17,18 @@ Some common principles for solving commonly occuring problems. These do not guar
         - to ensure method chaining, pass the same class object in the setter method.
         - code a build method that builds the object with values set
 3. Prototype pattern
+    - Motivation: In many scenarios it is required to have copies of multiple objects, whose properties can be different a little
+    - Implementation Steps:
+      - Create a IClonable interface, with clone method
+      - implement the interface and return the a object with all the class varibles copied 
 4. Registry pattern
+   - Motivation: Here, all the objects are stored in a class object, which kind of acts like a register for all the objects
+   - Implementation steps:
+     - create a registry class, with hashmap variable
+     - create method for register, retrive and unregister
 
 5. Factory pattern
+   - Motivation: 
 
 ## Structural patterns
 1. Adapter pattern
