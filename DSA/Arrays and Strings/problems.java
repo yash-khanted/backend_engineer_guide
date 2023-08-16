@@ -1,4 +1,5 @@
 public class problems {
+    private problems probe = new problems();
     // 1. Special index - an index in which sum of odd indexed elements is equal to
     // sum of even indexed elements
     public int SpecialIndex(int[] A) {
@@ -243,6 +244,50 @@ public class problems {
         }
     }
 
+////////////////////////////////////////////////////////////////
+//8. Sub array with given sum
+/*
+ * Given an array with positive integers, and a value B return the sub array that gives
+ * the sum equals to the given value
+ * solution: Applying two pointers technique
+ * as the number are all positive we traverse from the start and every and keep increasing
+ * the size of the array till the sum of its numbers is equal to B, when it gets more than
+ * B we will reduce the size of the array.
+ */
+    public int[] subArrayofGivenSum(int[] A, int B){
+        int p1 = 0, p2 = 1;
+        while(p1 <= p2  && p1 < A.length && p2 < A.length){
+            int sum = probe.subArraySum(A, p1, p2);
+
+            if(sum < B) p2++;
+            else if(sum > B) p1++;
+            else {
+                int[] ans = new int[p2 - p1 + 1];
+
+                for(int i = 0; i < ans.length; i++){
+                    ans[i] = A[p1];
+                    p1++;
+                }
+
+                return ans;
+            }
+        }
+
+        return new int[]{-1};
+    }
+
+    public int subArraySum(int[] A, int a, int b){
+        int[] prefixSumArr = new int[A.length];
+
+        prefixSumArr[0] = A[0];
+        for(int i=1; i < A.length; i++){
+            prefixSumArr[i] = prefixSumArr[i - 1] + A[i];
+        }
+
+        if(a == 0) return prefixSumArr[b];
+
+        return prefixSumArr[b] - prefixSumArr[a - 1];
+    }
 ////////////////////////////////////////////////////////////////
 //Strings
 ////////////////////////////////////////////////////////////////

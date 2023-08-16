@@ -68,6 +68,7 @@ Here, n is the length of the array.
 ## Kadane's algorithm
 
 ## Two pointers technique
+In this technique, we use two index pointers for navigating through the array.
 
 ## 2D Arrays
 In a 2-dimensional array **matrix**,\
