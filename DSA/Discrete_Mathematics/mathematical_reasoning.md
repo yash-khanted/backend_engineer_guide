@@ -7,10 +7,25 @@ It deals with the mathematical objects that are widely used in all most all fiel
 ## Mathematical Reasoning
 **Logic is Science of reasoning**
 ## Modular Arithemetic
-$(a*b)\%m=((a\%m) * (b\%m))\%m$
+The branch of mathematics dealing with mod(%) operations on numbers.
+### Modular Addiition/Subraction
+$(A + B) \% M = ((A \% M) + (B \% M)) \% M$
+
+### Modular Multiplication
+$(A * B) \% M = ((A \% M) * (B \% M)) \% M$
+
 ### inverse modulo
-$ If (a * b) \% m = 1 then b is called inverse modulo of a.
+If $(a * b) \% m = 1$ then b is called inverse modulo of a.
 
-$( a<sup>-1</sup> ) \% m will exist only if gcd(a, m) = 1 
+$( b<sup>-1</sup> ) \% m will exist only if gcd(b, m) = 1$
 
+
+### Modular Exponentiation
+$A <sup>B</sup> \% M = {1 -> if n = 0 ((A<sup>B/2</sup>) * (A<sup>B/2</sup>)) \% M -> if n is even
+}$
+
+#### Fermat's little theorem
+This theorem states that if p is a prime number then $A<sup>(p-1)</sup> \% P = 1$
+
+[Knowledge source](https://www.geeksforgeeks.org/modular-arithmetic/)
 ## Combinatorics

@@ -19,4 +19,14 @@ public class problems {
 
         return sum;
     }
+
+//////////////////////////////////////////////////////////////////////////////
+/*
+ * 3. Given two numbers A and B, find the maximum positive value of M such that
+ * A%M = B%M
+ */
+    public int ABModulo(int A, int B){
+        if( A >= B ) return A - B;
+        return B - A;
+    }
 }
