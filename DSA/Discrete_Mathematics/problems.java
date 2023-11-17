@@ -29,4 +29,30 @@ public class problems {
         if( A >= B ) return A - B;
         return B - A;
     }
+
+//////////////////////////////////////////////////////////////////////////////
+/*
+ * 4. Modulus of very large power of a number
+ * find the value of power(A, B) % C. A ranges from -infinity to +infinity
+ */
+
+    public int power(int A, int B, int C){
+        //power(0,0) case
+        if( A == 0 && B == 0 ) return 0;
+        if( B == 0 ) return 1;
+
+        long halfVal = power(A, B/2, C) % C;
+        long ans = (halfVal * halfVal) % C;
+
+        if( B % 2 == 0 ){
+            return (int) ans;
+        }
+        else{
+            ans = (ans * A % C) % C;
+
+            if(ans < 0) ans = ans + C;
+            
+            return (int) ans;
+        }
+    }
 }

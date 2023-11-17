@@ -8,8 +8,9 @@ Giving out minute details like memory, time complexity and platform are not the 
 - **scenario 1**:
   - if you know about the question well
   - ask about persisting data
-  - whether only entities are to be desgined
+  - whether only entities are to be desgined or the whole system is to be build
   - what interface is to be used api, CLI or else
+  - The given application has a vast system, what feature are you requesting to build?
 - **scenario 2**:
   - if you do not know what is asked
   - persist on asking what all working are around

@@ -66,6 +66,7 @@ $$
 Here, n is the length of the array.
 
 ## Kadane's algorithm
+This algorithm is used to find the sub array with the largest sum (contingous subarray of maximum sum).
 
 ## Two pointers technique
 In this technique, we use two index pointers for navigating through the array.
@@ -89,20 +90,20 @@ int[][] unitMatrix = {{1,0,0},
 ```
 
 # Strings - Pattern Matching
-
-Prefix strings: substrings starting from the beginning.
-suffix strings: substring ending at the length of the string.
+## Kuth-Pratt-Morris Algorithm
+### Background
+**prefix strings:**: substrings starting from the beginning.
 
 example string:
 yash
-
-**prefix strings:** \
+ 
 y \
 ya \
 yas \
-yash 
+yash
 
-**suffix strings** \
+**suffix strings**: substring ending at the length of the string. 
+
 h \
 sh \
 ash \
@@ -110,13 +111,31 @@ yash
 
 **LPS of string:** Length of the longest string which is both prefix and suffix string while excluding the whole string
 
+For example,
+let string be **ababaa**
+
+prefix string excluding the whole string are
+a\
+ab\
+aba\
+abab\
+ababa\
+Suffix string excluding the whole string
+a\
+aa\
+baa\
+abaa\
+babaa\
+
+Here, we can only the prefix string **a** is both prefix and suffix string. So the LPS is one.
+
 **pattern matching problem** \
-Consider a string, **P: aab**  and **T: asasbbabbaab** \
-find a matching string P in text string T.
+Consider a string, **Pattern : aab**  and **Text : asasbbabbaab**. Find all the matching strings P in text string T.
 
 **idea:**
-1. make a new string p + '$' + T \
-the new string is P$T: aab$asasabbabbaab
+1. make a new string p + "\$" + T
+   1. The reason is beacause while creating LPS array we should be able to differentiate the pattern from the text.
 2. Create an LPS array for thhe above string
+   1. LPS array is an integer array, in which each index i is the LPS value for the substring(0, i).
 3. The LPS values matching the length of the pattern will the starting point of the pattern in the text
 

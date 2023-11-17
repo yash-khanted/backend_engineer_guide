@@ -6,6 +6,21 @@ It deals with the mathematical objects that are widely used in all most all fiel
 ----------
 ## Mathematical Reasoning
 **Logic is Science of reasoning**
+## GCD
+```java
+public int gcd(int A, int B) {
+//euclidean algorithm: it states that gcd of two number would not change if one of the number is subracted from the other.
+    if(A == 0) return B;
+    if(B == 0) return A;
+
+    if(A == B) return A;
+
+    if(A > B)
+        return gcd(A-B, B);
+    else
+        return gcd(A, B-A);
+}
+```
 ## Modular Arithemetic
 The branch of mathematics dealing with mod(%) operations on numbers.
 ### Modular Addiition/Subraction

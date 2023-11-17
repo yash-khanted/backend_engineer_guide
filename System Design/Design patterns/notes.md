@@ -35,3 +35,14 @@ Some common principles for solving commonly occuring problems. These do not guar
 2. Facade pattern
 3. Decorator pattern
 4. Flyweight pattern
+
+
+## DI Pattern
+Transient: Transient lifetime services are created each time they're requested from the service container. This lifetime works best for lightweight, stateless services.
+Scoped: For web applications, a scoped lifetime indicates that services are created once per client request (connection).
+SIngeton: Singleton lifetime services are created either:
+
+- The first time they're requested.
+- By the developer, when providing an implementation instance directly to the container. This approach is rarely needed.
+
+Every subsequent request of the service implementation from the dependency injection container uses the same instance. If the app requires singleton behavior, allow the service container to manage the service's lifetime. Don't implement the singleton design pattern and provide code to dispose of the singleton. Services should never be disposed by code that resolved the service from the container. If a type or factory is registered as a singleton, the container disposes the singleton automatically

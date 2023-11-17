@@ -1,3 +1,5 @@
+package Arrays_and_Strings;
+
 public class problems {
     private problems probe = new problems();
     // 1. Special index - an index in which sum of odd indexed elements is equal to
@@ -289,6 +291,68 @@ public class problems {
         return prefixSumArr[b] - prefixSumArr[a - 1];
     }
 ////////////////////////////////////////////////////////////////
+//9. Find the first missing natural number from the array containing all types of numbers ( -ves, duplicates)
+/*
+ * Brute force: sort the array, then iterate ovet the array to find the missing natural number
+ * 
+ * Idea: Keep the relevant element in its correct place in the array and iterate over the array to
+ *  find the missing natural number.
+ */
+    public int missingNaturalNumber(int[] A){
+        //assigning with default case assuming we have an ideal array
+        int missingNumber = A.length + 1;
+
+        for(int i=0; i<A.length; i++){
+            int number = A[i];
+
+            while(number > 0 && number < (A.length + 1) && number != i - 1){
+                if(number == A[number - 1]) break;
+                
+                //swap places in array
+                A[i]= A[number - 1];
+                A[number - 1] = number;                
+            }
+        }
+
+        for(int i=0; i<A.length; i++){
+            if(A[i] != (i + 1)){
+                missingNumber = i+1;
+            }
+        }
+
+        return missingNumber;
+    }
+
+////////////////////////////////////////////////////////////////
+//10. Maximum water in the container
+//https://leetcode.com/problems/container-with-most-water/
+/*
+ * Given height of partition in the container using an array. find the largest container that holds the maximum amount of water
+ * Idea: Using two pointer appoarch
+ */    
+    public int maxArea(int[] height) {
+        int left = 0, right = height.length - 1;
+        int areaMax = Integer.MIN_VALUE;
+
+        while(left < right){
+            //the bradth value
+            int area = (right - left);
+
+            if(height[left] <= height[right]){
+                area *= height[left];
+                left++;
+            }
+            else {
+                area *= height[right];
+                right--;
+            }
+
+            if(area > areaMax) areaMax = area;
+        }
+
+        return areaMax;
+    }
+////////////////////////////////////////////////////////////////
 //Strings
 ////////////////////////////////////////////////////////////////
     public int PatternMatching(String A, String B) {
@@ -304,24 +368,31 @@ public class problems {
         return count;
     }
 
-    public int LPS(String T){
-        int N = T.length();
-        int prefixEndIndex = N-1;
-        int suffixStartIndex = 1;
-        
-        while(prefixEndIndex > -1 && suffixStartIndex < N){
-            String prefixString = BuildString(T, 0, prefixEndIndex);
-            String suffixString = BuildString(T, suffixStartIndex, N);
+    public int[] LPS(String T){
+        int tLength = T.length();
+        int[] lps = new int[tLength];
 
-            if(prefixString.equals(suffixString)){
-                return prefixEndIndex;
+        for(int index=0; index<tLength; index++){
+            int x = lps[index - 1];
+
+            if(T.charAt(x) == T.charAt(index)){
+                lps[index] = x + 1;
             }
             else{
-                prefixEndIndex--;
-                suffixStartIndex++;
+                while(x != 0){
+                    x = lps[x - 1];
+                    
+                    if(T.charAt(x) == T.charAt(index)){
+                        lps[index] = x + 1;
+                        continue;
+                    }
+                }
+
+                lps[index] = 0;
             }
         }
-        return 0;
+
+        return lps; 
     }
 
     public static String BuildString(String T, int start, int end){
@@ -332,12 +403,5 @@ public class problems {
         }
 
         return ans;
-    }
-
-    public static void main(String[] args) {
-        problems box = new problems();
-
-        System.out.println(box.PatternMatching("as", "yash"));
-        //System.out.println(box.LPS("abba"));
     }
 }
