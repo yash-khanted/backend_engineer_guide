@@ -66,7 +66,24 @@ $$
 Here, n is the length of the array.
 
 ## Kadane's algorithm
-This algorithm is used to find the sub array with the largest sum (contingous subarray of maximum sum).
+This algorithm is used to find the sub array with the largest sum (contingous subarray of maximum sum) in linear time.
+
+Given an array, with range [-Z, +Z] we need to find the subarray which has the largest sum among all subarrays.
+BruteForce:
+```java
+//The brute force method
+//Iterate through all the sunarrays an find the maximum one
+public int maxSum(int[] A){
+    int maxSum = 0;
+
+    for(int start=0; start<A.length; start++){
+        for(int end=i; end<A.length; end++){
+            for(int i=start; i<end; i++){
+            }
+        }
+    }
+}
+```
 
 ## Two pointers technique
 In this technique, we use two index pointers for navigating through the array.
@@ -139,3 +156,32 @@ Consider a string, **Pattern : aab**  and **Text : asasbbabbaab**. Find all the 
    1. LPS array is an integer array, in which each index i is the LPS value for the substring(0, i).
 3. The LPS values matching the length of the pattern will the starting point of the pattern in the text
 
+```java
+//Code for calculating the LPS array
+public int[] getLPS(String text){
+    //empty array
+    int[] lps = new int[text.length()];
+    lps[0] = 0;
+
+    for(int i=1; i<text.length; i++){
+        p = lps[i - 1];
+        if(text.charAt(p) == text.charAt(i)){
+            //As we lps[i] = lps[i - 1] + 1, At max
+            lps[i] = p + 1;
+        }
+        else{
+            while(p > 0){
+                p = lps[p - 1];
+                
+                if(text.charAt(p) == text.charAt(i)){
+                    lps[i] = p + 1;
+                }     
+            }
+        }
+
+        return lps;
+    }
+}
+```
+
+## Z - Algorithm

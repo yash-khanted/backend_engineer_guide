@@ -2,8 +2,8 @@ package Arrays_and_Strings;
 
 public class problems {
     private problems probe = new problems();
-    // 1. Special index - an index in which sum of odd indexed elements is equal to
-    // sum of even indexed elements
+    // 1. Special index - At any index, if the sum of odd indexed elements is equal to
+    // sum of even indexed elements after removing the element.
     public int SpecialIndex(int[] A) {
 
         /*
@@ -126,46 +126,24 @@ public class problems {
     //https://leetcode.com/problems/container-with-most-water/
     /*
      * Objective: to find the boundaries of the container that could store the most water
-     * [1, 8, 9, 2, 3, 9, 8, 0]
-     * pfmax
-     * [1, 8, 9, 9, 9, 9, 9, 9]
-     * sfmax
-     * [1, 9, 9, 9, 9, 9, 8, 0]
-     * 
-     * w=0
-     * at 1 : w += 8 - 8 = 0
-     * at 2 : w += 9 - 9 = 0
-     * at 3 : w += 8 - 2 = 6
-     * at 4 : w +=  
-     * 
-     * [1, 2, 3, 4, 3, 2, 1]
-     * [1, 2, 3, 4, 4, 4, 4]
-     * [4, 4, 4, 4, 3, 2, 1] 
+     * Given array with height at each point, find the maxium water that can can be contained
      */
 
-     public int mostWater(int[] height){
-        int water = 0;
+     //solving by two pointer approach
+     public int mostWaterInContainer(int[] heights){
+        int left = 0,
+            right = heights.length - 1,
+            water = 0;
 
-        int[] pfMaxArray = height;
-        int maxValue = pfMaxArray[0];
-        for(int i = 1; i < pfMaxArray.length; i++){
-             if(maxValue < pfMaxArray[i]){
-                maxValue = pfMaxArray[i];
-             }
-             pfMaxArray[i] = maxValue;
-        }
-
-        int[] sfMaxArrray = height;
-        maxValue = sfMaxArrray[sfMaxArrray.length - 1];
-        for(int i=height.length-2; i>=0; i--){
-            if(maxValue < sfMaxArrray[i]){
-                maxValue = sfMaxArrray[i];
+            while(left < right){
+                water = Math.max(water, 
+                                ((right - left) * Math.min(heights[left], heights[right]))
+                                );
+                
+                if(heights[left] <= heights[right]) left++;
+                else right--;
             }
-            sfMaxArrray[i] = maxValue;
-        }
-
-
-        return water;
+            return water;
      }
 
 ////////////////////////////////////////////////////////////////
@@ -196,11 +174,12 @@ public class problems {
             int[] row = A[i];
 
             for (int j = 0; j < p; j++) {
+                
                 int sum = 0;
-
                 for (int k = 0; k < p; k++) {
                     sum += row[k] * B[k][j];
                 }
+
                 C[i][j] = sum;
             }
         }
@@ -221,7 +200,7 @@ public class problems {
          *                [2 5 8]
          *                [3 6 9]
          * 
-         * 2. Now reverse the colums of the matrix to mate the roation
+         * 2. Now reverse the colums of the matrix to make the roation
          * 
          * final result is [7 4 1]
          *                 [8 5 2]

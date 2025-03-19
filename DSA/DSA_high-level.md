@@ -1,4 +1,91 @@
+# Data structures
+It is the method or format of storing and organising data, such that it can be retrieved and used efficiently.
+
+There are two categories of data structures
+1. Linear DS
+   1. arrays and strings
+   2. linked lists
+   3. stacks
+   4. Queues
+2. Non linear DS
+   1. Trees
+   2. Graphs
+   3. Tables
+   4. Sets
+
+- In any computer problem DS and algo go hand in hand. To say, DS has implementation of algorithm and algorithm demands appropriate DS
+- A well designed data structure allows
+  - a variety of critical operations to be performed
+  - Monitors both execution time and memory usage
+
+## Datatypes
+
+There are two types 
+1. Primitive datatype
+   1. int, long, float etc
+2. Non-primitive datatype
+   1. All data structures are part this type - arrays, linkedlist, graph, trees etc
+
+### Abstract Datatypes (Non primitive types)
+These are complex data structures that are used to store large amounts of connected data.
+
+#### Arrrays
+#### Lnked lists
+#### Stacks
+#### Queues
+#### Trees
+
 # High Level Overview of Data structure of algorithms
+An algorithm is a finite set of instructions that, if followed, accomplishes a particular task. In addition, all algorithms must satisfy the following criteria
+1. **Input:** Zero or more quantities are externally supplied
+2. **Output:** At least one quantity is produced
+3. **Definiteness:** Each instruction is clear and unambiguous
+4. **Finiteness:** If we trace out the instructions of an algorithm, then for all cases, the algorithm terminates after a finite number of steps
+5. **Effectiveness:** Every instruction must be very basic so that it can be carried out, in principle, by a person using only pencil and paper. It is not enough that each operation be definite as in criterion 3: It also must be feasible.
+---
+### Study of algorithms
+There are four branches or divsion for studying algorithms
+1. How to devise the algorithm
+   1. "Algorithm making is an art and it may never be fully automated"
+   2. It useful to learn about some methods/ techniques used in algorithm design
+2. How to validate the algorithm
+   1. A two phase process
+      1. Program validation
+      2. Program verification/ proof of correctness
+3. How to analyze the algorithm
+   1. It is also called as performance analysis
+4. How to test the algorithm
+   1. Debugging
+   2. Performance measurement
+
+### Algorithm Specification
+Algorithms can be expressed in plain english by using some general conventions for better readability.
+The following examples show the convention ued for making algorithms
+
+**Alogirthm specification for selection Sort**
+```
+SelectionSort(int[] arr)
+{
+    for i = 1 to n do
+    {
+        int index = i;
+        for j = i to n do
+        {
+            if arr[i] > arr[j]
+                index = j;
+        }
+
+        int t = arr[i];
+        arr[i] = arr[index]
+        arr[index] = t;
+    }
+}
+```
+
+### Recursive Algorithms
+1. Towers of hanoi
+2. Permutation generator
+
 # Algorithms
 FOur types
 1. Complete search / Brute force
@@ -117,45 +204,3 @@ if(int i = n; i > -1; i/=2){
 Here the terminating condition is that i to be greater than -1. The iteration is i getiing deivided by two. Thus when i get to zero the condition i>-1 will keep satisfying after that as 0/2 = 0.
 
 -------
-
-# DVCS [Distributed Version Control System]
-Software development takes ton of coding and many developers. It is also important that they collaborate together to make it possible. Version control systems are specific software that keeps track of changes as storing versions of file (as snapshots in GIT). Distributed VCS are the one's where everything is distributed instead of being in a central location. Every developer gets to copy the entire version history and the code together, then changes are made locally.
-
-In GIT, clone a repository means copying the entire code base along with the local machine to the local device and then making changes locally. The changes then can be commited to the central repository for merging. 
-- GIT is fast
-- Doesn't require internet
-
-Git handles code changes with security too. Every change is encoded with checksum file. That has SHA1 encrypted codec that matches with vesrion. In general, if there is any change made then git will know about it
-
-GIT maintains three states:
-
-1. **Modified**: The changed files, stored as snapshots.
-2. **Stsged**: The modified files that are made available for the next commit. This state is also called indexed.
-3. **Committed**: The data that is finally stored in the database.
-
-![git states](./resources/file_lifecycle.jpg)
-
-You can use git-config CLI tool that can set general configuration properties on your system.
-
-```$ git config --list --show-origin```\
-```$ git config --global user.name <specify username>```
-
-## Project with GIT
-There are two ways to start a project with GIT
-1. Clone a repository.
-2. Make a normal directory to be under git control.
-
-Let's see for the second one. Navigate to the directory and run the few add commands and make the first commit.
-# Math
-## GCD (Greatest common divisor)
-1. prime factorization method
-2. Euclidean principle
-
-```
-public class Solution {
-    public int gcd(int A, int B) {
-        if(B == 0) return A;
-        else return gcd(B, A%B);
-    }
-}
-```
